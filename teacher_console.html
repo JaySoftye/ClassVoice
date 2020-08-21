@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ClassVoice Teacher Console</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@200;300;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./_assets/styles.css">
+
+    <script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+
+  </head>
+<body>
+<div id="mainContent">
+<!-- APP container -->
+
+  <!-- START TEACHER DASHBOARD CONTROLS ADD 'sessionStarted' class once session initiated  -->
+  <div id="teacherDash" class="teacherDashboard inactive">
+    <div>Session PIN <strong id="currentSession">5876</strong></div>
+
+    <!-- TEACHER STATUS CONTROLS -->
+    <div class="teacher-status">
+      <div class="sound-bar-left-large"></div>
+      <div class="sound-bar-left-small"></div>
+      <div class="sound-bar-right-large"></div>
+      <div class="sound-bar-right-small"></div>
+      <p class="title">TEACHER STATUS</p>
+      <div class="talk-button-container active">
+        <button id="liveButton" class="enabled" type="button" value="" disabled>Live</button>
+      </div>
+      <div class="talk-button-container">
+        <button id="mutedButton" type="button" value="" disabled></button>
+      </div>
+      <div class="select-button-container">
+        <button id="teacherSelect" type="button" value="" onclick="goTeacherSelect()">Teacher Select</button>
+        <button id="pushToTalk" class="selected" type="button" value="" onclick="goTeacherStatus()">Push to Talk</button>
+      </div>
+    </div>
+
+    <!-- WHOSE SPEAKING IDENTIFY -->
+    <div id="studentSpeaking" class="inactive">
+      <p class="title">now speaking</p>
+      <span id>Lydia</span>
+      <button type="button" class="student-button" value="" style="background-image: url(https://i.pinimg.com/originals/e8/df/26/e8df265e9179f1ea8b3f2f6c77401346.jpg)" onclick="toggleAccept(this)">
+        <!-- IF NO IMAGE UPLOADED DISPLAY TEXT -->
+      </button>
+    </div>
+
+    <!-- STUDENT ATTENDANCE CONTROLS -->
+    <div class="teacher-student-status">
+      <div class="button-divider">
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 300 15">
+          <path d="M221.016,0l79.299,0v10.891C284.421,4.378,254.861,0,221.016,0z"/>
+        	<path d="M15.315,15c-8.25,0-15-6.75-15-15l220.701,0c-40.558,0-74.963,6.286-87.07,15H15.315z"/>
+        </svg>
+      </div>
+      <div class="button-container" id="deleteDrop" ondragleave="dragLeave()" ondragover="allowDrop(event)" ondrop="drop(event, this)">
+        <div class="delete-icon"></div>
+        <span>DRAG STUDENT TO DELETE</span>
+      </div>
+      <div class="button-divider">
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 300 35">
+          <path d="M220.849,0c33.845,0,63.405,4.378,79.299,10.891V0H220.849z"/>
+          <path d="M220.849,35h79.299V24.109C284.254,30.622,254.694,35,220.849,35z"/>
+          <path d="M133.779,20H15.148c-8.25,0-15,6.75-15,15h220.701C180.291,35,145.886,28.714,133.779,20z"/>
+          <path d="M133.779,15H15.148c-8.25,0-15-6.75-15-15l220.701,0C180.291,0,145.886,6.286,133.779,15z"/>
+        </svg>
+      </div>
+      <div class="button-container">
+        <button id="muteAll" class="mute selected" type="button" value="" onclick="goMuteAll()"></button>
+        <span id="muteAllText">CLICK TO UNMUTE</span>
+      </div>
+      <div class="button-divider">
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 300 35">
+          <path d="M220.849,0c33.845,0,63.405,4.378,79.299,10.891V0H220.849z"/>
+          <path d="M220.849,35h79.299V24.109C284.254,30.622,254.694,35,220.849,35z"/>
+          <path d="M133.779,20H15.148c-8.25,0-15,6.75-15,15h220.701C180.291,35,145.886,28.714,133.779,20z"/>
+          <path d="M133.779,15H15.148c-8.25,0-15-6.75-15-15l220.701,0C180.291,0,145.886,6.286,133.779,15z"/>
+        </svg>
+      </div>
+      <div class="button-container">
+        <button id="acceptAll" class type="button" value="" onclick="acceptAllStudents()"></button>
+        <span>ACCEPT ALL</span>
+      </div>
+      <div class="button-divider">
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 300 15">
+          <path d="M220.701,14.983H300V4.092C284.106,10.605,254.546,14.983,220.701,14.983z"/>
+        	<path d="M15-0.017c-8.25,0-15,6.75-15,15h220.701c-40.558,0-74.963-6.286-87.07-15H15z"/>
+        </svg>
+      </div>
+    </div>
+
+
+  </div>
+  <!-- END TEACHER DASHBOARD CONTROLS -->
+
+
+  <!-- START AUTHENTICATION AND STUDENT STATUS 'sessionStarted' CLASS ADDED ONCE THE SESSION IS ENABLED -->
+  <div id="authenticationContainer" class="teacherAuthentication">
+
+    <!-- START TEACHER AUTHENTICATION -->
+    <div id="teacherAuth" class="active">
+      <div class="app-brand">
+        <img src="./_assets/class_voice_logo.png" alt="ClassVoice" />
+      </div>
+      <div class="input-field-control">
+        <label for="teacher_name">Enter Teacher Name</label>
+        <input type="text" name="teacher_name" id="teacher_name" value="" placeholder="">
+      </div>
+      <div class="input-field-control">
+        <label for="authentication_key">Enter Authentication Key</label>
+        <input type="text" name="teacher_name" id="authentication_key" value="" placeholder="">
+      </div>
+      <input class="button" type="submit" id="authorize_teacher" value="enter" onclick="goSessionDashboard()">
+    </div>
+    <!-- END TEACHER AUTHENTICATION -->
+
+
+    <!-- START TEACHER AUTHORIZED START SESSION -->
+    <div id="sessionDash" class="inactive">
+      <div class="app-brand">
+        <img src="./_assets/class_voice_logo.png" alt="ClassVoice" />
+      </div>
+      <h1 class="indented">HELLO!</h1>
+      <div id="teacher_name_confirmed" class="title-confirmed"><div class="check"></div></div>
+      <input class="button" type="button" id="session_start_pin_generation" value="start a session" onclick="generatePin()">
+
+      <div class="input-field-control margin-bottom">
+        <label for="session_pin">Share the session PIN</label>
+        <input type="text" name="session_pin" id="session_pin" value="" disabled>
+      </div>
+
+      <div class="flex-container">
+        <input class="button next" type="button" id="session_start_to_dashboard" value="" onclick="goStudentAttendance()">
+        <span class="error-text inactive" id="sessionPinError">Please Generate a PIN Number to share with your students using the 'START A SESSION' button above before proceeding.</span>
+      </div>
+    </div>
+    <!-- END TEACHER AUTHORIZED START SESSION -->
+
+
+    <!-- START SESSION STUDENT STATUS -->
+    <div id="studentAttendance" class="inactive">
+      <div class="title">
+        STUDENT ATTENDANCE
+      </div>
+      <ul class="student-roster">
+
+        <!-- STUDENT ROSTER REPEAT LIST ITEM COMPONENT -->
+        <!-- ADD INITIALS TO ELEMENT FOR ID -->
+        <li class="student status-waiting" draggable="true" ondragstart="drag(event)" id="AH">
+          <button type="button" class="student-button" value="" style="background-image: url(https://www.crushpixel.com/static15/preview2/portrait-happy-smiling-teenage-girl-1980409.jpg)" onclick="toggleAccept(this)">
+            <!-- IF NO IMAGE UPLOADED DISPLAY TEXT -->
+          </button>
+          <span id>Allison</span>
+        </li>
+        <li class="student status-waiting" draggable="true" ondragstart="drag(event)" id="BC">
+          <button type="button" class="student-button" value="" style="background-image: url(https://media.gettyimages.com/photos/closeup-of-smiling-teenage-boy-by-red-column-picture-id879746282)" onclick="toggleAccept(this)">
+            <!-- IF NO IMAGE UPLOADED DISPLAY TEXT -->
+          </button>
+          <span id>Ben</span>
+        </li>
+        <li class="student status-waiting" draggable="true" ondragstart="drag(event)" id="BA">
+          <button type="button" class="student-button" value="" style="background-image: url(https://static1.bigstockphoto.com/8/4/3/large1500/348717490.jpg)" onclick="toggleAccept(this)">
+            <!-- IF NO IMAGE UPLOADED DISPLAY TEXT -->
+          </button>
+          <span id>Brian</span>
+        </li>
+        <li class="student status-waiting" draggable="true" ondragstart="drag(event)" id="BG">
+          <div class="hand-raised"></div>
+          <button type="button" class="student-button" value="" style="background-image: url(https://previews.123rf.com/images/antoniodiaz/antoniodiaz1806/antoniodiaz180600261/103786828-close-up-portrait-of-smiling-teenage-girl-with-braces-against-dentist-standing-in-clinic.jpg)" onclick="toggleAccept(this)">
+            <!-- IF NO IMAGE UPLOADED DISPLAY TEXT -->
+          </button>
+          <span id>Beatrice</span>
+        </li>
+        <li class="student status-waiting" draggable="true" ondragstart="drag(event)" id="BS">
+          <div class="hand-raised"></div>
+          <button type="button" class="student-button" value="" onclick="toggleAccept(this)">BS</button>
+          <span>Bonnie</span>
+        </li>
+        <li class="student status-waiting" draggable="true" ondragstart="drag(event)" id="CG">
+          <button type="button" class="student-button" value="" onclick="toggleAccept(this)">CG</button>
+          <span>Cameron</span>
+        </li>
+        <li class="student status-waiting" draggable="true" ondragstart="drag(event)" id="CK">
+          <button type="button" class="student-button" value="" onclick="toggleAccept(this)">CK</button>
+          <span>Colt</span>
+        </li>
+        <li class="student status-waiting" draggable="true" ondragstart="drag(event)" id="CS">
+          <button type="button" class="student-button" value="" onclick="toggleAccept(this)">CS</button>
+          <span>Connor</span>
+        </li>
+        <li class="student status-waiting" draggable="true" ondragstart="drag(event)" id="CJ">
+          <button type="button" class="student-button" value="" onclick="toggleAccept(this)">CJ</button>
+          <span>Charles</span>
+        </li>
+        <li class="student status-waiting" draggable="true" ondragstart="drag(event)" id="CB">
+          <button type="button" class="student-button" value="" style="background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTG5lfcauNDBB3g3FndDMAlMGPaXA1mBT7rlA&usqp=CAU)" onclick="toggleAccept(this)">
+            <!-- IF NO IMAGE UPLOADED DISPLAY TEXT -->
+          </button>
+          <span id>Christine</span>
+        </li>
+        <li class="student status-waiting" draggable="true" ondragstart="drag(event)" id="DG">
+          <button type="button" class="student-button" value="" style="background-image: url(https://media.istockphoto.com/photos/smiling-teenage-mixed-race-boy-picture-id590046054?k=6&m=590046054&s=170667a&w=0&h=C8_9Ai22qv8YuB0lZpSuFxUSvTpDHqQG9dgM9vP2fqc=)" onclick="toggleAccept(this)">
+            <!-- IF NO IMAGE UPLOADED DISPLAY TEXT -->
+          </button>
+          <span id>Dom</span>
+        </li>
+        <li class="student status-waiting" draggable="true" ondragstart="drag(event)" id="ES">
+          <button type="button" class="student-button" value="" onclick="toggleAccept(this)">ES</button>
+          <span>Emerson</span>
+        </li>
+        <li class="student status-waiting" draggable="true" ondragstart="drag(event)" id="FC">
+          <button type="button" class="student-button" value="" onclick="toggleAccept(this)">FC</button>
+          <span>Frank</span>
+        </li>
+        <li class="student status-waiting" draggable="true" ondragstart="drag(event)" id="GS">
+          <button type="button" class="student-button" value="" onclick="toggleAccept(this)">GS</button>
+          <span>Gerald</span>
+        </li>
+        <li class="student status-waiting" draggable="true" ondragstart="drag(event)" id="GR">
+          <button type="button" class="student-button" value="" onclick="toggleAccept(this)">GR</button>
+          <span>Gracie</span>
+        </li>
+        <li class="student status-waiting" draggable="true" ondragstart="drag(event)" id="EF">
+          <button type="button" class="student-button" value="" style="background-image: url(https://c8.alamy.com/comp/WW3D3G/smiling-teenage-girl-with-down-syndrome-flips-hair-outside-in-sunshine-WW3D3G.jpg)" onclick="toggleAccept(this)">
+            <!-- IF NO IMAGE UPLOADED DISPLAY TEXT -->
+          </button>
+          <span id>Emma</span>
+        </li>
+        <li class="student status-waiting" draggable="true" ondragstart="drag(event)" id="JQ">
+          <button type="button" class="student-button" value="" style="background-image: url(https://thumbnails.yayimages.com/1600/0/4d7/4d7b71.jpg)" onclick="toggleAccept(this)">
+            <!-- IF NO IMAGE UPLOADED DISPLAY TEXT -->
+          </button>
+          <span id>Joseph</span>
+        </li>
+        <li class="student status-waiting" draggable="true" ondragstart="drag(event)" id="KL">
+          <button type="button" class="student-button" value="" onclick="toggleAccept(this)">KL</button>
+          <span>Kelly</span>
+        </li>
+        <li class="student status-waiting" draggable="true" ondragstart="drag(event)" id="LS">
+          <button type="button" class="student-button" value="" onclick="toggleAccept(this)">LS</button>
+          <span>Lance</span>
+        </li>
+        <li class="student status-waiting" draggable="true" ondragstart="drag(event)" id="LJ">
+          <div class="hand-raised"></div>
+          <button type="button" class="student-button" value="" style="background-image: url(https://st4.depositphotos.com/13193658/19883/i/1600/depositphotos_198838090-stock-photo-beautiful-smiling-teenage-girl-listening.jpg)" onclick="toggleAccept(this)">
+            <!-- IF NO IMAGE UPLOADED DISPLAY TEXT -->
+          </button>
+          <span id>Laura</span>
+        </li>
+        <li class="student status-waiting" draggable="true" ondragstart="drag(event)" id="LP">
+          <button type="button" class="student-button" value="" style="background-image: url(https://i.pinimg.com/originals/e8/df/26/e8df265e9179f1ea8b3f2f6c77401346.jpg)" onclick="toggleAccept(this)">
+            <!-- IF NO IMAGE UPLOADED DISPLAY TEXT -->
+          </button>
+          <span id>Lydia</span>
+        </li>
+        <li class="student status-waiting" draggable="true" ondragstart="drag(event)" id="MT">
+          <button type="button" class="student-button" value="" style="background-image: url(https://image.shutterstock.com/image-photo/portrait-smiling-african-american-teen-260nw-691617067.jpg)" onclick="toggleAccept(this)"
+            <!-- IF NO IMAGE UPLOADED DISPLAY TEXT -->
+          </button>
+          <span id>Matt</span>
+        </li>
+        <li class="student status-waiting" draggable="true" ondragstart="drag(event)" id="MH">
+          <button type="button" class="student-button" value="" style="background-image: url(https://cdn7.dissolve.com/p/D145_259_171/D145_259_171_1200.jpg)" onclick="toggleAccept(this)">
+            <!-- IF NO IMAGE UPLOADED DISPLAY TEXT -->
+          </button>
+          <span id>Michelle</span>
+        </li>
+        <li class="student status-waiting" draggable="true" ondragstart="drag(event)" id="NR">
+          <button type="button" class="student-button" value="" style="background-image: url(https://media.istockphoto.com/photos/smiling-teenage-girl-picture-id610560278)" onclick="toggleAccept(this)">
+            <!-- IF NO IMAGE UPLOADED DISPLAY TEXT -->
+          </button>
+          <span id>Nicole</span>
+        </li>
+        <li class="student status-waiting" draggable="true" ondragstart="drag(event)" id="PS">
+          <button type="button" class="student-button" value="" onclick="toggleAccept(this)">PS</button>
+          <span>Penny</span>
+        </li>
+        <li class="student status-waiting" draggable="true" ondragstart="drag(event)" id="RS">
+          <button type="button" class="student-button" value="" onclick="toggleAccept(this)">RS</button>
+          <span>Ron</span>
+        </li>
+        <li class="student status-waiting" draggable="true" ondragstart="drag(event)" id="PU">
+          <button type="button" class="student-button" value="" style="background-image: url(https://www.freedigitalphotos.net/images/previews/portrait-of-a-smiling-teenage-girl-100666442.jpg)" onclick="toggleAccept(this)"
+            <!-- IF NO IMAGE UPLOADED DISPLAY TEXT -->
+          </button>
+          <span id>Patricia</span>
+        </li>
+        <li class="student status-waiting" draggable="true" ondragstart="drag(event)" id="SS">
+          <button type="button" class="student-button" value="" onclick="toggleAccept(this)">SS</button>
+          <span>Sarah</span>
+        </li>
+        <li class="student status-waiting" draggable="true" ondragstart="drag(event)" id="RW">
+          <button type="button" class="student-button" value="" style="background-image: url(https://comps.gograph.com/94-smiling-teenage-guy_gg63737818.jpg)" onclick="toggleAccept(this)">
+            <!-- IF NO IMAGE UPLOADED DISPLAY TEXT -->
+          </button>
+          <span id>Ryder</span>
+        </li>
+        <li class="student status-waiting" draggable="true" ondragstart="drag(event)" id="TV">
+          <button type="button" class="student-button" value="" style="background-image: url(https://st4.depositphotos.com/13193658/27067/i/1600/depositphotos_270674086-stock-photo-beautiful-smiling-teenage-girl-looking.jpg)" onclick="toggleAccept(this)">
+            <!-- IF NO IMAGE UPLOADED DISPLAY TEXT -->
+          </button>
+          <span id>Terry</span>
+        </li>
+        <li class="student status-waiting" draggable="true" ondragstart="drag(event)" id="SL">
+          <button type="button" class="student-button" value="" style="background-image: url(https://fscomps.fotosearch.com/compc/ULY/ULY309/portrait-of-smiling-teenage-girl-picture__u62670804.jpg)" onclick="toggleAccept(this)">
+            <!-- IF NO IMAGE UPLOADED DISPLAY TEXT -->
+          </button>
+          <span id>Sierra</span>
+        </li>
+        <li class="student status-waiting" draggable="true" ondragstart="drag(event)" id="VS">
+          <button type="button" class="student-button" value="" onclick="toggleAccept(this)">VS</button>
+          <span>Violet</span>
+        </li>
+        <li class="student status-waiting" draggable="true" ondragstart="drag(event)" id="WL">
+          <button type="button" class="student-button" value="" onclick="toggleAccept(this)">WL</button>
+          <span>Wesker</span>
+        </li>
+        <!-- STUDENT ROSTER REPEAT LIST ITEM COMPONENT -->
+
+      </div>
+      <!-- END SESSION STUDENT STATUS -->
+    </div>
+
+  </div>
+  <!-- END AUTHENTICATION AND STUDENT STATUS -->
+
+  <footer>
+    <div class="footer-content">
+    <img class="app-brand" src="./_assets/class_voice_logo.png" alt="ClassVoice" />
+    <input class="button active" type="button" id="session_end" value="End Session" onClick="window.location.reload();">
+    </div>
+  </footer>
+
+<!--  END OF APP container -->
+</div>
+
+<script src="./index.js"></script>
+
+</body>
+</html>
