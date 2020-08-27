@@ -377,7 +377,7 @@ body #main {
   background-image: url('../images/main-section_bg.jpg');
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center top;
+  background-position: center bottom;
 }
 
 .hero.main-section .main-content {
@@ -400,53 +400,130 @@ body #main {
   background-image: url('../images/student-section_bg.jpg');;
 }
 
-.how-it-works-section fieldset.teacher {
-  padding: 20px 25px 20px 25px;
-  border: 1px solid #505051;
-  border-radius: 15px;
-}
-
-.how-it-works-section fieldset.teacher > legend {
-  margin-left: 50px;
-  padding: 15px;
-  font-family: 'museo-slab','Roboto',Helvetica,Arial,san-serif !important;
-  color: rgb(0,0,0);
-}
-
-.how-it-works-section fieldset.teacher .columns {
-  margin: 0 auto;
-}
-
-.how-it-works-section fieldset.teacher .columns .column {
+.how-it-works-section .container .columns .column {
   position: relative;
-  margin-right: 50px;
-  margin-bottom: 25px;
-  background-color: rgb(255,233,235);
-  border-radius: 6px;
-  text-align: center;
-  font-family: 'museo-slab','Roboto',Helvetica,Arial,san-serif !important;
-  font-size: 1.25rem;
-  color: rgb(0,0,0);
 }
 
-.how-it-works-section fieldset.teacher .columns .column::after {
-  content: '';
-  height: 50px;
-  width: 50px;
+.how-it-works-section .how-it-works-container {
+  width: 85%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.how-it-works-section .how-it-works-container .container-card {
+  height: 60vh;
+  width: 100%;
+  position: sticky;
+  top: 20vh;
+  margin-bottom: 20vh;
+  background-color: rgb(255,255,255);
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgb(221, 221, 221);
+  border-radius: 6px;
+  box-shadow: -2.5px 10px 20px 0px rgba(0, 0, 0, 0.05);
+}
+
+.how-it-works-section .how-it-works-container .container-card:nth-child(1) {
+  transform: rotate(.75deg);
+}
+
+.how-it-works-section .how-it-works-container .container-card:nth-child(2) {
+  transform: rotate(-1deg) translateY(5px);
+}
+
+.how-it-works-section .how-it-works-container .container-card:nth-child(3) {
+  transform: rotate(1deg) translateY(10px);
+}
+
+.how-it-works-section .how-it-works-container .container-card:nth-child(4) {
+  transform: rotate(-2deg) translateY(15px);
+}
+
+.how-it-works-section .how-it-works-container .container-card:nth-child(5) {
+  transform: rotate(1.5deg) translateY(20px);
+}
+
+.how-it-works-container .container-card .inner-card-content {
+  height: inherit;
+  width: inherit;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.how-it-works-container .container-card .inner-card-content > img {
+  height: auto;
+  width: 50%;
+}
+
+.how-it-works-container .container-card .inner-card-content > h3 {
+  width: 50%;
+  padding-right: 50px
+}
+
+.how-it-works-container .container-card .inner-card-content > p, .how-it-works-container .container-card .inner-card-content > p a {
+  margin-bottom: 25px;
+  font-family: 'museo-slab','Roboto',Helvetica,Arial,san-serif !important;
+  font-size: .85rem;
+}
+
+.how-it-works-container .container-card .inner-card-content > p {
   position: absolute;
-  top: 42%;
-  right: -50px;
-  background-image: url("data:image/svg+xml,%3Csvg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='0 0 50 50'%3E%3Cpath style='fill:%23505051;' d='M0.055,26.14v-2.391h43.625l-1.594-3.984l7.968,5.179l-7.968,5.179l1.594-3.984H0.055z'/%3E%3C/svg%3E");
+  right: 25px;
+  bottom: 0;
+}
+
+.how-it-works-container .container-card .inner-card-content > p a {
+  text-decoration: underline;
+  font-weight: 900;
+}
+
+.container-card-single {
+  min-height: 100%;
+  background-color: rgb(255,255,255);
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgb(221, 221, 221);
+  border-radius: 6px;
+  box-shadow: -2.5px 10px 20px 0px rgba(0, 0, 0, 0.15);
+}
+
+.container-card-single .inner-card-content h3 {
+  padding: 20px 20px 30px 20px;
+}
+
+.columns .column .container-card-single {
+  transition: all .5s ease-in-out;
+  cursor: pointer;
+}
+
+.columns.teachers .column .container-card-single:hover {
+  background-color: rgba(253,119,133,0.25);
+}
+
+.columns.students .column .container-card-single:hover {
+  background-color: rgba(84,183,211,0.25);
+}
+
+.columns .column .container-card-single::after {
+  content: '';
+  height: 1rem;
+  width: 1rem;
+  position: absolute;
+  top: 45%;
+  right: -.5rem;
+  background-image: url("data:image/svg+xml,%3Csvg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='0 0 50 50'%3E%3Cpath style='fill:%23505051' d='M46.037,21.763L21.645,5.909c-0.631-0.41-1.35-0.613-2.067-0.613c-0.858,0-1.712,0.29-2.408,0.862 c-1.278,1.049-1.729,2.806-1.115,4.341l2.798,6.993H6.03c-2.095,0-3.794,1.699-3.794,3.794v7.316v0.003 c0,2.095,1.699,3.794,3.794,3.794c0.051,0,0.102-0.001,0.153-0.003h12.67l-2.798,6.993c-0.614,1.535-0.163,3.292,1.115,4.341 c0.696,0.572,1.551,0.862,2.408,0.862c0.717,0,1.436-0.203,2.067-0.613l24.392-15.854c1.077-0.7,1.726-1.897,1.726-3.181 C47.764,23.66,47.114,22.463,46.037,21.763z'/%3E%3C/svg%3E%0A");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
 }
 
-.how-it-works-section fieldset.teacher .columns .column:last-child {
-  margin-right: 0;
-}
-
-.how-it-works-section fieldset.teacher .columns .column:last-child::after {
+.columns .column:last-child .container-card-single::after {
   display: none;
 }
 
@@ -554,6 +631,21 @@ footer .content h5, footer .content h6 {
 footer .content p, footer .content a {
   margin-top: 6px;
   color: rgb(255,255,255);
+}
+
+@media (max-width: 768px) {
+  .how-it-works-container .container-card .inner-card-content {
+    flex-direction: column;
+  }
+  .how-it-works-container .container-card .inner-card-content > img, .how-it-works-container .container-card .inner-card-content > h3 {
+    width: 100%;
+  }
+  .how-it-works-container .container-card .inner-card-content > h3 {
+    padding: 20px;
+  }
+  .how-it-works-container .container-card .inner-card-content > p {
+    position: relative;
+  }
 }
 
 @media (min-width: 980px) {

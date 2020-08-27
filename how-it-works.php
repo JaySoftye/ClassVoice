@@ -166,200 +166,49 @@
     </div>
   </section>
 
-  <section class="hero padding-sm is-pink-background">
-    <div class="hero-body">
-      <div class="container is-fluid">
-        <div class="columns">
-          <div class="column">
-            <h1 class="sub-header less-line-height has-text-centered nomargin">With the ClassVoice app, <b>teacher and student voices</b> are <b>connected across the classroom.</b> Using ClassVoice allows you to <b>mitigate the effects of social distancing and mask usage</b> in the classroom by putting an audio device in the hands of every student. </h1>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="hero padding-sm is-white-background">
-    <div class="hero-body">
-      <div class="container">
-        <div class="columns is-vcentered">
-          <div class="column nopadding">
-            <p class="has-text-right">Lightweight and easy to use! Simply download the app on any device to get started.<br /><br />A safe place for students. We store absolutely no data, so each time you use the app, you’ll start a brand-new session and then invite your students to join.</p>
-          </div>
-          <div class="column is-8">
-            <img class="img-fluid" src="./_assets/images/app-devices-screens.jpg" />
-          </div>
-          <div class="column nopadding">
-            <p class="has-text-left">A fun and cost-effective alternative to classroom audio systems. ClassVoice requires no hardware, and utilizes school and/or personal devices like computers, laptops, tablets, iPads, and smartphones.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="hero is-medium">
-    <div class="hero-body nopadding">
-      <div class="container is-fluid nopadding">
-        <div class="columns">
-          <div class="column is-3-widescreen is-2-desktop is-1-tablet teacher-app-background"></div>
-          <div class="column is-pink-background">
-            <div class="padding content">
-              <h4 class="strong padding-top">For Teachers:</h4>
-              <p>Ensure that <b>students can hear you,</b> and that students can hear each other</p>
-              <p>Ability to take <b>no-contact, virtual attendance</b></p>
-              <p>Monitor class questions and <b>open the microphone as needed</b> to the class or to an individual student </p>
-              <div class="flex start">
-                <button class="button download-icon" onclick="openTeacherApp()"><span>TEACHER APP</span></button>
-              </div>
-            </div>
-          </div>
-          <div class="column is-blue-background">
-            <div class="padding content">
-              <h4 class="strong has-text-right padding-top">For Students:</h4>
-              <p class="has-text-right">No more worries about <b>hearing the students</b> from the back of the room, or from behind a mask</p>
-              <p class="has-text-right">An <b>easy way to ask questions</b> and participate in class</p>
-              <p class="has-text-right">Download directly on their personal device (or school device issued to them), <b>removing the need for shared equipment</b></p>
-              <div class="flex end">
-                <button class="button download-icon" onclick="openStudentApp()"><span>STUDENT APP</span></button>
-              </div>
-            </div>
-          </div>
-          <div class="column is-3-widescreen is-2-desktop is-1-tablet student-app-background"></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="hero padding-sm is-green-background">
-    <div class="hero-body">
-      <div class="container is-fluid">
-        <div class="columns">
-          <div class="column">
-            <h1 class="sub-header less-line-height has-text-centered">ClassVoice is a safe place for students. <b>We store absolutely no data,</b> so each time you use the app, you’ll <b>start a brand-new session</b> and then invite your students to join.   </h1>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <section id="howClassVoiceWorks" class="hero padding-sm is-white-background how-it-works-section">
     <div class="hero-body">
-      <div class="container is-fluid padding-top">
-
+      <div class="container padding-top">
         <div class="columns is-multiline is-centered">
-          <div class="column is-full padding-top">
+          <div class="column is-full">
             <h2 class="header serif has-text-centered">How it works <strong>for Teachers:</strong></h2>
           </div>
-        </div>
-        <div class="columns is-centered is-multiline teachers">
-          <div class="column is-one-fifth-desktop is-4-tablet">
-            <div class="container-card-single">
+          <div class="column is-full how-it-works-container teacher">
+            <div class="container-card">
               <div class="inner-card-content">
                 <img src="./_assets/images/how-it-works_teacher1.svg" />
-                <h3 class="content-header serif">Teachers visit the ClassVoice site and <strong>download the app.</strong></h3>
+                <h3 class="sub-header serif strong">Teachers visit the ClassVoice site and download the app.</h3>
+                <p>Questions? <a href>Download</a> a Teacher Guide</p>
               </div>
             </div>
-          </div>
-          <div class="column is-one-fifth-desktop is-4-tablet">
-            <div class="container-card-single">
+            <div class="container-card">
               <div class="inner-card-content">
                 <img src="./_assets/images/how-it-works_teacher2.svg" />
-                <h3 class="content-header serif">Open the app for the first time and <strong>enter your authorization key.</strong></h3>
+                <h3 class="sub-header serif strong">Open the app for the first time and enter your authorization key.</h3>
+                <p>Questions? <a href>Download</a> a Teacher Guide</p>
               </div>
             </div>
-          </div>
-          <div class="column is-one-fifth-desktop is-4-tablet">
-            <div class="container-card-single">
+            <div class="container-card">
               <div class="inner-card-content">
                 <img src="./_assets/images/how-it-works_teacher3.svg" />
-                <h3 class="content-header serif">Your <strong>device is now linked</strong> to your license.</h3>
+                <h3 class="sub-header serif strong">Your device is now linked to your license.</h3>
+                <p>Questions? <a href>Download</a> a Teacher Guide</p>
               </div>
             </div>
-          </div>
-          <div class="column is-one-fifth-desktop is-4-tablet">
-            <div class="container-card-single">
+            <div class="container-card">
               <div class="inner-card-content">
                 <img src="./_assets/images/how-it-works_teacher4.svg" />
-                <h3 class="content-header serif">Now, generate and <strong>share a Session PIN</strong> with your class.</h3>
+                <h3 class="sub-header serif strong">Now, generate and share a Session PIN with your class.</h3>
+                <p>Questions? <a href>Download</a> a Teacher Guide</p>
               </div>
             </div>
-          </div>
-          <div class="column is-one-fifth-desktop is-4-tablet">
-            <div class="container-card-single">
+            <div class="container-card">
               <div class="inner-card-content">
                 <img src="./_assets/images/how-it-works_teacher5.svg" />
-                <h3 class="content-header serif">Get started <strong>communicating with students!</strong></h3>
+                <h3 class="sub-header serif strong">Get started communicating with students!</h3>
+                <p>Questions? <a href>Download</a> a Teacher Guide</p>
               </div>
             </div>
-          </div>
-        </div>
-        <div class="columns is-centered padding-bottom">
-          <div class="column is-full padding-bottom">
-            <p class="serif has-text-centered">Questions? <a class="serif strong" href><u>Download</u></a> a Teacher Guide</p>
-          </div>
-        </div>
-
-        <div class="columns is-multiline is-centered">
-          <div class="column is-full padding-top">
-            <h2 class="header serif has-text-centered">How it works <strong>for Students:</strong></h2>
-          </div>
-        </div>
-        <div class="columns is-centered is-multiline students">
-          <div class="column is-one-fifth-desktop is-4-tablet">
-            <div class="container-card-single">
-              <div class="inner-card-content">
-                <img src="./_assets/images/how-it-works_student1.svg" />
-                <h3 class="content-header serif">Students visit the ClassVoice site and <strong>download the app.</strong></h3>
-              </div>
-            </div>
-          </div>
-          <div class="column is-one-fifth-desktop is-4-tablet">
-            <div class="container-card-single">
-              <div class="inner-card-content">
-                <img src="./_assets/images/how-it-works_student2.svg" />
-                <h3 class="content-header serif">Open the app and <strong>enter the Session PIN</strong> from your teacher.</h3>
-              </div>
-            </div>
-          </div>
-          <div class="column is-one-fifth-desktop is-4-tablet">
-            <div class="container-card-single">
-              <div class="inner-card-content">
-                <img src="./_assets/images/how-it-works_student3.svg" />
-                <h3 class="content-header serif">Enter your <strong>name</strong> and snap a photo <strong>for attendance.</strong></h3>
-              </div>
-            </div>
-          </div>
-          <div class="column is-one-fifth-desktop is-4-tablet">
-            <div class="container-card-single">
-              <div class="inner-card-content">
-                <img src="./_assets/images/how-it-works_student4.svg" />
-                <h3 class="content-header serif"><strong>Start participating!</strong></h3>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="columns is-centered">
-          <div class="column is-full padding-bottom">
-            <p class="serif has-text-centered">Questions? <a class="serif strong" href><u>Download</u></a> a Student Guide</p>
-          </div>
-        </div>
-
-      </div>
-
-      <div class="container padding-top padding-bottom">
-        <div class="columns is-centered">
-          <div class="column is-10">
-            <img src="./_assets/images/how-it-works_footer.svg" />
-          </div>
-        </div>
-        <div class="columns is-centered padding-bottom">
-          <div class="column padding-sm-left-right">
-            <h3 class="content-header serif strong has-text-centered has-text-centered">Student apps connect to teacher app</h3>
-          </div>
-          <div class="column padding-sm-left-right">
-            <h3 class="content-header serif strong has-text-centered">Teacher controls who is speaking</h3>
-          </div>
-          <div class="column padding-sm-left-right">
-            <h3 class="content-header serif strong has-text-centered">Teacher app connects to audio device</h3>
           </div>
         </div>
       </div>
