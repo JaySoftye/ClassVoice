@@ -236,7 +236,7 @@ button:focus {
   display: flex;
   margin-top: 30px;
   margin-bottom: 40px;
-  padding: 30px cacl(30px + 5vw);
+  padding: calc(15px + 2.5vh) calc(15px + 2.5vw);
   background-color: rgb(28,28,28);
   border: none;
   border-radius: 100px;
@@ -255,9 +255,9 @@ button:focus {
   transform: translateY(-6.6px);
 }
 
-.button.download-icon {
+.button.download-icon span {
   position: relative;
-  padding-left: 50px;
+  padding-left: 30px;
 }
 
 .button.download-icon > span::before {
@@ -265,7 +265,7 @@ button:focus {
   height: 30px;
   width: 30px;
   position: absolute;
-  left: 15px;
+  left: -5px;
   background-image: url("data:image/svg+xml,%3Csvg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='0 0 60 60'%3E%3Cpath style='fill:%23F9EE53;' d='M28.806,34.395c0.399,0.399,0.922,0.598,1.444,0.598s1.045-0.199,1.444-0.598l4.902-4.902 c0.798-0.798,0.798-2.091,0-2.888s-2.091-0.798-2.888,0l-1.416,1.416v-8.959c0-1.128-0.914-2.043-2.043-2.043 s-2.043,0.914-2.043,2.043v8.959l-1.416-1.416c-0.798-0.798-2.091-0.798-2.888,0s-0.798,2.091,0,2.888L28.806,34.395z'/%3E%3Cpath style='fill:%23F9EE53;' d='M40.055,7.213h-19.61c-3.829,0-6.945,3.116-6.945,6.945v32.683c0,3.83,3.116,6.945,6.945,6.945h19.61 c3.829,0,6.945-3.115,6.945-6.945V14.159C47,10.329,43.884,7.213,40.055,7.213z M20.445,11.299h19.61c1.577,0,2.86,1.283,2.86,2.86 v26.555H17.585V14.159C17.585,12.582,18.868,11.299,20.445,11.299z M40.055,49.701h-19.61c-1.577,0-2.86-1.283-2.86-2.86v-2.043 h25.329v2.043C42.915,48.418,41.632,49.701,40.055,49.701z'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-size: 30px 30px
