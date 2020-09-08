@@ -11,9 +11,13 @@ h1, h2, h3, h4, h5, h6, p, small, blockquote, a, li, table, td, tr, label, butto
   color: rgb(0,0,0);
 }
 input, button {
+  padding: 0;
   border: none;
   outline: none;
   cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 .flex-container {
   display: flex;
@@ -37,7 +41,7 @@ input, button {
   margin-top: 30px;
   margin-bottom: 40px;
   padding: 25px 60px;
-  background-color: rgb(0,0,0);
+  background-color: rgb(0,0,0) !important;
   border: none;
   border-radius: 100px;
   box-shadow: inset -50px 0px 30px -20px rgba(42,41,42,1), 0px 10px 25px 0px rgba(0,0,0,.5);
@@ -47,6 +51,9 @@ input, button {
   text-transform: uppercase;
   transition: all ease .25s;
   cursor: pointer;
+}
+.button > span {
+  font-size: 15px;
 }
 .button.next, .button.previous {
   height: 90px;
@@ -124,7 +131,7 @@ input, button {
 .sub-text {
   color: #505051 !important;
 }
-input, .indented {
+input[type=text], .indented {
   text-indent: 20px;
 }
 .check {
@@ -210,7 +217,7 @@ body {
   font-size: calc(100vh - 95vh);
 }
 .studentPortalLogin input[type="submit"] {
-  dislay: block;
+  display: block;
   margin: 100px auto 0 auto !important;
   color: rgb(241,234,148) !important;
 }
@@ -871,6 +878,87 @@ ul.student-roster li.student > .hand-raised::after {
   box-shadow: 0px 7.5px 2.5px 0px rgba(0, 0, 0, 0.12);
   border: 1px solid rgb(0,0,0);
 }
+
+
+
+
+.studentAppDashboard.sessionStarted .echo-slide-container {
+  width: 75%;
+  margin-top: .5rem;
+}
+.studentAppDashboard.sessionStarted .echo-slide-container > input[type=range].range-slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 45px;
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  background-image: -moz-linear-gradient( 0deg, rgb(132,172,184) 0%, rgb(93,129,140) 100%);
+  background-image: -webkit-linear-gradient( 0deg, rgb(132,172,184) 0%, rgb(93,129,140) 100%);
+  box-shadow: 0px -5px 15px 0px rgba(0, 0, 0, 0.2),inset 0px 3px 7px 0px rgba(0, 0, 0, 0.35);
+  border-radius: 100px;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+.studentAppDashboard.sessionStarted .echo-slide-container > input[type=range].range-slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 45px;
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  background-image: -moz-linear-gradient( 0deg, rgb(132,172,184) 0%, rgb(93,129,140) 100%);
+  background-image: -webkit-linear-gradient( 0deg, rgb(132,172,184) 0%, rgb(93,129,140) 100%);
+  box-shadow: 0px -5px 15px 0px rgba(0, 0, 0, 0.2),inset 0px 3px 7px 0px rgba(0, 0, 0, 0.35);
+  border-radius: 100px;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+.studentAppDashboard.sessionStarted .echo-slide-container > input[type=range].range-slider:hover {
+  opacity: 1;
+}
+
+.studentAppDashboard.sessionStarted .echo-slide-container > input[type=range].range-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 65px;
+  height: 45px;
+  background-image: url("data:image/svg+xml,%3Csvg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='0 0 65 45'%3E%3Cg%3E%3ClinearGradient id='SVGID' gradientUnits='userSpaceOnUse' x1='32.5' y1='-9.094947e-13' x2='32.5' y2='45' gradientTransform='matrix(1 0 0 -1 0 45)'%3E%3Cstop offset='0' style='stop-color:%2351A2FE'/%3E%3Cstop offset='1' style='stop-color:%2362F7BD'/%3E%3C/linearGradient%3E%3Crect style='fill:url(%23SVGID);' width='65' height='45'/%3E%3C/g%3E%3Cg style='opacity:0.18;'%3E%3Crect x='32.304' y='14' width='1.391' height='18'/%3E%3Crect x='39.609' y='14' width='1.391' height='18'/%3E%3Crect x='25' y='14' width='1.391' height='18'/%3E%3C/g%3E%3C/svg%3E");
+  border-radius: 50px;
+  box-shadow: inset 0px -3px 0px 0px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
+.studentAppDashboard.sessionStarted .echo-slide-container > input[type=range].range-slider::-moz-range-thumb {
+  -moz-appearance: none;
+  appearance: none;
+  width: 65px;
+  height: 45px;
+  background-image: url("data:image/svg+xml,%3Csvg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='0 0 65 45'%3E%3Cg%3E%3ClinearGradient id='SVGID' gradientUnits='userSpaceOnUse' x1='32.5' y1='-9.094947e-13' x2='32.5' y2='45' gradientTransform='matrix(1 0 0 -1 0 45)'%3E%3Cstop offset='0' style='stop-color:%2351A2FE'/%3E%3Cstop offset='1' style='stop-color:%2362F7BD'/%3E%3C/linearGradient%3E%3Crect style='fill:url(%23SVGID);' width='65' height='45'/%3E%3C/g%3E%3Cg style='opacity:0.18;'%3E%3Crect x='32.304' y='14' width='1.391' height='18'/%3E%3Crect x='39.609' y='14' width='1.391' height='18'/%3E%3Crect x='25' y='14' width='1.391' height='18'/%3E%3C/g%3E%3C/svg%3E");
+  border-radius: 50px;
+  box-shadow: inset 0px -3px 0px 0px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
+.echo-slide-container > .slider-label-container {
+  display: flex;
+  flex-direction: row;
+  align-content: stretch;
+  justify-content: space-between;
+  padding: 0 30px;
+}
+.echo-slide-container > .slider-label-container span.slider-label {
+  font-size: 12px;
+}
+.echo-slide-container > .slider-label-container span.slider-label.selected {
+  color: rgb(241,234,148);
+}
+
+
+
+
 
 footer {
   display: block;

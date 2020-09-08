@@ -34,7 +34,7 @@
           <input type="text" name="student_first_name" id="student_first_name" value="" placeholder="...">
         </div>
         <p id="nameErrorMessage" class="error-text indented"></p>
-        <input class="button" type="submit" id="" value="Let's get started" onclick="goPinEnter()">
+        <input class="button" type="submit" id="" value="Let's get started" onclick="goPinEnter()" />
       </div>
       <!-- STUDENT PIN FORM -->
       <div id="studentPinLogin" class="inactive">
@@ -46,7 +46,7 @@
           <input type="text" name="session_pin" id="session_pin" value="" placeholder="_ _ _ _">
           <p id="pinErrorMessage" class="error-text"></p>
         </div>
-        <input class="button" type="submit" id="" value="ENTER" onclick="goStudentSession()">
+        <input class="button" type="submit" id="" value="ENTER" onclick="goStudentSession()" />
       </div>
     </div>
     <!-- END STUDENT AUTHENTICATION -->
@@ -106,6 +106,18 @@
             </div>
           </div>
 
+        </div>
+
+        <div class="app-block">
+          <div class="status">Echo Reduction</div>
+            <div class="echo-slide-container">
+              <input class="range-slider" type="range" min="1" max="100" value="50" id="echoReduction" />
+              <div class="slider-label-container">
+                <span class="slider-label" id="low">LOW</span>
+                <span class="slider-label selected" id="med">MEDIUM</span>
+                <span class="slider-label" id="high">HIGH</span>
+              </div>
+            </div>
         </div>
 
         <div class="app-block">

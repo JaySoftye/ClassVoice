@@ -379,3 +379,34 @@ function goMute() {
     }
 
 }
+
+// ECHO REDUCTION SLIDER
+// CONSOLE LOG ECHO REDUCTION AMOUNT
+// Label class change for mouse event
+// TEST IF INPUT UI IS WORKING
+  var echoSlider = document.getElementById("echoReduction");
+  var echoSliderLabels= document.getElementById("low");
+  var echoSliderLabelLow = document.getElementById("low");
+  var echoSliderLabelMed = document.getElementById("med");
+  var echoSliderLabelHigh = document.getElementById("high");
+
+    console.info(echoSlider.defaultValue);
+
+  echoSlider.onchange = function () {
+    console.info(echoSlider.value);
+
+    if (echoSlider.value > 0 && echoSlider.value < 33) {
+      echoSliderLabelLow.classList.add("selected");
+      echoSliderLabelMed.classList.remove("selected");
+      echoSliderLabelHigh.classList.remove("selected");
+    } else if (echoSlider.value > 33 && echoSlider.value < 66) {
+      echoSliderLabelLow.classList.remove("selected");
+      echoSliderLabelMed.classList.add("selected");
+      echoSliderLabelHigh.classList.remove("selected");
+    } else if (echoSlider.value > 66 && echoSlider.value < 101) {
+      echoSliderLabelLow.classList.remove("selected");
+      echoSliderLabelMed.classList.remove("selected");
+      echoSliderLabelHigh.classList.add("selected");
+    }
+
+  };
