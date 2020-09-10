@@ -171,7 +171,7 @@
       <div class="container is-fluid">
         <div class="columns">
           <div class="column">
-            <h1 class="sub-header less-line-height has-text-centered nomargin">With the ClassVoice app, <b>teacher and student voices</b> are <b>connected across the classroom.</b> Using ClassVoice allows you to <b>mitigate the effects of social distancing and mask usage</b> in the classroom by putting an audio device in the hands of every student. </h1>
+            <h1 class="sub-header less-line-height has-text-centered nomargin">With the ClassVoice app, <b>student voices</b> are <b>connected across the classroom.</b> Using ClassVoice allows you to <b>mitigate the effects of social distancing and mask usage</b> in the classroom by putting an audio device in the hands of every student. </h1>
           </div>
         </div>
       </div>
@@ -204,7 +204,7 @@
           <div class="column is-pink-background">
             <div class="padding content">
               <h4 class="strong padding-top">For Teachers:</h4>
-              <p>Ensure that <b>students can hear you,</b> and that students can hear each other</p>
+              <p>Ensure that <b>students can hear each other</b></p>
               <p>Ability to take <b>no-contact, virtual attendance</b></p>
               <p>Monitor class questions and <b>open the microphone as needed</b> to the class or to an individual student </p>
               <div class="flex start">
@@ -279,7 +279,7 @@
             <div class="container-card-single">
               <div class="inner-card-content">
                 <img src="./_assets/images/how-it-works_teacher4.svg" />
-                <h3 class="content-header serif">Now, generate and <strong>share a Session PIN</strong> with your class.</h3>
+                <h3 class="content-header serif">Now, generate and <strong>share a Session PIN and avatar</strong> with your class.</h3>
               </div>
             </div>
           </div>
@@ -316,7 +316,7 @@
             <div class="container-card-single">
               <div class="inner-card-content">
                 <img src="./_assets/images/how-it-works_student2.svg" />
-                <h3 class="content-header serif">Open the app and <strong>enter the Session PIN</strong> from your teacher.</h3>
+                <h3 class="content-header serif">Open the app and <strong>enter the Session PIN and choose correct avatar</strong> from your teacher.</h3>
               </div>
             </div>
           </div>
@@ -324,14 +324,6 @@
             <div class="container-card-single">
               <div class="inner-card-content">
                 <img src="./_assets/images/how-it-works_student3.svg" />
-                <h3 class="content-header serif">Enter your <strong>name</strong> and snap a photo <strong>for attendance.</strong></h3>
-              </div>
-            </div>
-          </div>
-          <div class="column is-one-fifth-desktop is-4-tablet">
-            <div class="container-card-single">
-              <div class="inner-card-content">
-                <img src="./_assets/images/how-it-works_student4.svg" />
                 <h3 class="content-header serif"><strong>Start participating!</strong></h3>
               </div>
             </div>
