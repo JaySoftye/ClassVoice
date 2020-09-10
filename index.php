@@ -279,7 +279,7 @@
             <div class="container-card-single">
               <div class="inner-card-content">
                 <img src="./_assets/images/how-it-works_teacher4.svg" />
-                <h3 class="content-header serif">Now, generate and <strong>share a Session PIN and avatar</strong> with your class.</h3>
+                <h3 class="content-header serif">Now, generate and <strong>share a Session PIN and Avatar</strong> with your class.</h3>
               </div>
             </div>
           </div>
@@ -316,7 +316,7 @@
             <div class="container-card-single">
               <div class="inner-card-content">
                 <img src="./_assets/images/how-it-works_student2.svg" />
-                <h3 class="content-header serif">Open the app and <strong>enter the Session PIN and choose correct avatar</strong> from your teacher.</h3>
+                <h3 class="content-header serif">Open the app and <strong>enter the Session PIN and choose correct Avatar</strong> from your teacher.</h3>
               </div>
             </div>
           </div>
