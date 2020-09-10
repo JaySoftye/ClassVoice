@@ -100,7 +100,7 @@
         <br />
         <br />
       <h3 class="sub-header serif is-pink-text"><b>Already have an Authorization Key?</b></h3>
-      <a class="button">Download the app!</a>
+      <a class="button" href="https://classvoice.teq.com/teacher">Download the app!</a>
     </div>
   </div>
 </aside>
