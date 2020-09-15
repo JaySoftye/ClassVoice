@@ -118,9 +118,17 @@ input, button {
 .header {
   display: block;
   margin-bottom: 0;
+  text-indent: 20px;
   letter-spacing: 5px;
   font-weight: 700;
   font-size: 2.5rem;
+}
+.sub-header {
+  display: block;
+  margin-top: 75px;
+  text-align: center;
+  font-weight: 300;
+  font-size: 1.25rem;
 }
 .text {
   display: block;
@@ -137,13 +145,12 @@ input[type=text], .indented {
 .check {
   position: relative;
   float: right;
-  top: -5px;
   display: inline-block;
   transform: rotate(45deg);
   height: 15px;
   width: 5.5px;
-  border-bottom: 5px solid rgba(126,217,255,.95);
-  border-right: 5px solid rgba(126,217,255,.95);
+  border-bottom: 2.5px solid #212121;
+  border-right: 2.5px solid #212121;
 }
 
 body {
@@ -216,9 +223,31 @@ body {
   font-weight: 500;
   font-size: calc(100vh - 95vh);
 }
+.studentPortalLogin > .select_menu_cover {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background-color: rgba(0,0,0,0.85);
+}
+.studentPortalLogin .input-field-control.flex {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.studentPortalLogin .input-field-control.flex label {
+  flex: 0 0 25%;
+  margin-top: 0;
+}
+.studentPortalLogin .input-field-control.flex input {
+  flex: 0 0 70%;
+  margin-top: 0;
+}
 .studentPortalLogin input[type="submit"] {
   display: block;
-  margin: 100px auto 0 auto !important;
+  margin: 50px auto 0 auto !important;
   color: rgb(241,234,148) !important;
 }
 .studentPortalLogin {
@@ -240,7 +269,7 @@ body {
   height: calc(100vh - 92.5vh);
   display: flex;
   flex-direction: row;
-  margin: 0 auto;
+  margin: 0 auto 75px auto;
   padding: 10px;
   background-color: rgba(5,117,109,.25);
   border: none;
@@ -275,6 +304,89 @@ body {
 .studentAppDashboard input[type="button"] {
   color: rgb(241,234,148) !important;
 }
+.studentPortalLogin .input-field-control.avatar_select_menu {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 25px;
+}
+.studentPortalLogin .input-field-control.avatar_select_menu label {
+  margin-top: 0;
+  margin-right: 10px;
+}
+.studentPortalLogin .input-field-control.avatar_select_menu button {
+  height: calc(100vh - 90vh);
+  width: calc(100vh - 90vh);
+  display: flex;
+  margin-left: 25px;
+  background-color: transparent;
+  background-image: url("data:image/svg+xml,%3Csvg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='0 0 125 125'%3E%3Cpath fill='%23E6E7E8' d='M62.5,9.351c29.354,0,53.149,23.795,53.149,53.149S91.853,115.65,62.5,115.65 c-29.354,0-53.149-23.796-53.149-53.15C9.351,33.146,33.146,9.351,62.5,9.351L62.5,9.351z'/%3E%3Cpath fill='%23C2C4C6' d='M114.319,50.638c0.869,3.814,1.33,7.784,1.33,11.862c0,26.801-19.839,48.965-45.631,52.618L39.95,85.05 l54.391-54.39L114.319,50.638L114.319,50.638z'/%3E%3Cpath fill='%23A8A7A7' d='M86.468,83.534l-0.005-0.005c4.931-5.614,7.927-12.97,7.927-21.029c0-5.474-1.381-10.625-3.811-15.126 c2.694-5.154,4.075-11.059,3.762-16.714c-5.76-0.319-11.586,0.927-16.803,3.717c-4.481-2.401-9.599-3.766-15.038-3.766 s-10.557,1.365-15.038,3.766c-5.217-2.79-11.043-4.036-16.803-3.717c-0.319,5.759,0.927,11.585,3.717,16.802 c-2.401,4.48-3.766,9.599-3.766,15.038c0,17.612,14.277,31.89,31.89,31.89c0.199,0,0.395-0.011,0.593-0.015l0.008,0.008 c0.137-0.003,0.272-0.014,0.408-0.018c0.35-0.011,0.698-0.025,1.045-0.047c0.218-0.014,0.435-0.031,0.651-0.05 c0.342-0.029,0.684-0.062,1.023-0.102c0.215-0.025,0.429-0.052,0.642-0.082c0.339-0.047,0.676-0.098,1.011-0.156 c0.209-0.035,0.417-0.072,0.624-0.111c0.337-0.064,0.672-0.135,1.005-0.21c0.2-0.045,0.401-0.09,0.6-0.138 c0.338-0.083,0.673-0.173,1.007-0.267c0.188-0.053,0.377-0.104,0.564-0.16c0.343-0.103,0.682-0.214,1.019-0.328 c0.173-0.058,0.348-0.114,0.52-0.176c0.353-0.126,0.701-0.262,1.049-0.4c0.151-0.06,0.303-0.116,0.452-0.178 c0.377-0.157,0.748-0.324,1.117-0.494c0.115-0.053,0.232-0.102,0.347-0.157c0.433-0.206,0.86-0.423,1.283-0.648 c0.047-0.025,0.095-0.047,0.141-0.072c1.427-0.769,2.789-1.645,4.075-2.615c0.071-0.054,0.14-0.111,0.211-0.165 c0.348-0.267,0.693-0.539,1.03-0.82c0.106-0.088,0.207-0.181,0.312-0.27c0.296-0.254,0.59-0.51,0.876-0.774 c0.121-0.111,0.238-0.227,0.357-0.34c0.263-0.25,0.524-0.502,0.779-0.762c0.126-0.128,0.248-0.26,0.372-0.39 c0.239-0.252,0.477-0.506,0.708-0.766C86.373,83.635,86.422,83.586,86.468,83.534z'/%3E%3C/svg%3E%0A");
+  background-size: cover;
+  border: none;
+  border-radius: 10px;
+}
+.studentPortalLogin .input-field-control.avatar_select_menu button img {
+  height: 100%;
+  width: 100%;
+}
+.studentPortalLogin .input-field-control.avatar_select_menu > .avatar_select_menu_container {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: center;
+  z-index: 10;
+}
+.studentPortalLogin .input-field-control.avatar_select_menu > .avatar_select_menu_container > div {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 25vh;
+  z-index: 10;
+}
+.studentPortalLogin .input-field-control.avatar_select_menu > .avatar_select_menu_container label {
+  height: calc(100vh - 90vh);
+  width: calc(100vh - 90vh);
+  display: block;
+  margin: 0 0;
+  padding: 0 0;
+  background-color: transparent;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.studentPortalLogin .input-field-control.avatar_select_menu > .avatar_select_menu_container label > img {
+  height: 100%;
+  width: 100%;
+}
+.studentPortalLogin .input-field-control.avatar_select_menu input[type="radio"], .studentPortalLogin .input-field-control.avatar_select_menu > .avatar_select_menu_container label > input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .studentAppDashboard.sessionStarted .status {
   display: block;
   margin: 0 auto;
@@ -712,7 +824,6 @@ ul.student-roster li.student > .hand-raised::after {
   box-shadow: 0px -5px 5px 0px rgba(0, 0, 0, 0.25), inset 0px 3.25px 7.25px 0px rgba(0, 0, 0, 0.35)
 }
 
-
 #studentSpeaking {
   min-height: 100px;
   display: flex;
@@ -955,10 +1066,6 @@ ul.student-roster li.student > .hand-raised::after {
 .echo-slide-container > .slider-label-container span.slider-label.selected {
   color: rgb(241,234,148);
 }
-
-
-
-
 
 footer {
   display: block;

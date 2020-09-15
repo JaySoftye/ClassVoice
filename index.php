@@ -376,7 +376,7 @@
           </div>
           <div class="column is-4 large-spacing content">
             <img src="./_assets/images/CV_logo_footer.png" alt="ClassVoice">
-            <h5 class="has-text-centered">is powered by<br />Teq Random Adaptive Communications</h5>
+            <p class="has-text-centered"><b>ClassVoice</b> [patent pending] is powered by<br /><b>Teq Random Adaptive Communications</b></p>
             <br />
             <p class="has-text-centered"><a href>Terms and Conditions</a> | <a href>Privacy Policy</a></p>
           </div>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ClassVoice Student Portal</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@200;300;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./_assets/styles.css">
+
+    <script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+
+  </head>
+<body>
+<div id="mainContent">
+<!-- APP container -->
+
+  <!-- START STUDENT PORTAL -->
+  <div id="studentPortalContainer" class="studentPortalLogin">
+
+
+    <!-- START STUDENT AUTHENTICATION -->
+    <div id="studentAuthentication" class="active">
+      <div class="app-brand">
+        <img src="./_assets/class_voice_logo.png" alt="ClassVoice" />
+      </div>
+      <!-- STUDENT LOGIN FORM -->
+      <div id="studentAuthLogin" class="active">
+        <h1 class="header margin-top">WELCOME!</h1>
+        <p class="text">Let's get started by telling us your name</p>
+        <div class="login-form-fields">
+          <input type="text" name="student_first_name" id="student_first_name" value="" placeholder="...">
+        </div>
+        <p id="nameErrorMessage" class="error-text indented"></p>
+        <input class="button" type="submit" id="" value="Let's get started" onclick="goPinEnter()" />
+      </div>
+      <!-- STUDENT PIN FORM -->
+      <div id="studentPinLogin" class="inactive">
+        <h1 class="header margin-top">HELLO!</h1>
+        <div class="title-confirmed"><span id="student_name_confirmed"></span> <div class="check"></div></div>
+        <p class="indented sub-text">Switch display name? <a href>Reset</a></p>
+        <div class="input-field-control flex margin-top">
+          <label for="session_pin">Enter PIN</label>
+          <input type="text" name="session_pin" id="session_pin" value="" placeholder="_ _ _ _">
+          <p id="pinErrorMessage" class="error-text"></p>
+        </div>
+        <div class="input-field-control avatar_select_menu">
+          <label for="session_pin">Select Avatar</label>
+          <button type="button" name="open_avatar_menu_button" id="open_avatar_menu_button" onclick="openAvatarMenu()"></button>
+          <p id="avatarErrorMessage" class="error-text"></p>
+          <input type="radio" name="avatar" id="default" value="default" checked />
+          <div class="avatar_select_menu_container inactive" id="avatar_select_menu"></div>
+        </div>
+        <input class="button" type="submit" id="" value="ENTER" onclick="goStudentSession()" />
+      </div>
+      <!-- STUDENT PIN FORM FOR EXISTING SESSION -->
+      <div id="studentPinLoginInProgress" class="inactive">
+        <p class="sub-header">Hi <span id="userGreeting"></span>, looking to join a session already<br /> in progress.</p>
+        <div class="input-field-control flex margin-top">
+          <label for="session_pin">Enter Access PIN</label>
+          <input type="text" name="session_pin_in_progress" id="session_pin_in_progress" value="" placeholder="_ _ _ _">
+          <p id="pinInProgressErrorMessage" class="error-text"></p>
+        </div>
+        <input class="button" type="submit" id="" value="ENTER" onclick="goStudentSessionInProgress()" />
+      </div>
+    </div>
+    <!-- END STUDENT AUTHENTICATION -->
+
+
+    <!-- START STUDENT DASHBOARD ADD 'sessionStarted' class to container -->
+    <div id="studentDashboard" class="studentAppDashboard inactive">
+
+      <!-- START APP CONTROLS -->
+      <div id="appControl" class="active">
+        <div class="app-block">
+          <input class="button previous" type="button" id="session_start_to_dashboard" value="" onClick="window.location.reload();">
+          <div id="userName" class="status user">STATUS</div>
+        </div>
+
+        <div class="app-block">
+
+          <div class="student-status">
+            <div class="sound-bar-left-large"></div>
+            <div class="sound-bar-left-small"></div>
+            <div class="sound-bar-right-large"></div>
+            <div class="sound-bar-right-small"></div>
+            <div class="talk-button-container active">
+              <button id="liveButton" class="enabled" type="button" value="" onclick="goTalk()" disabled>Live</button>
+            </div>
+            <div class="talk-button-container">
+              <button id="mutedButton" type="button" value="" disabled></button>
+            </div>
+            <div class="raise-hand-button-container">
+              <button id="raiseHandButton" type="button" value="" onclick="goRaiseHand()"></button>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="app-block">
+          <div class="status">Echo Reduction</div>
+            <div class="echo-slide-container">
+              <input class="range-slider" type="range" min="1" max="100" value="50" id="echoReduction" />
+              <div class="slider-label-container">
+                <span class="slider-label" id="low">LOW</span>
+                <span class="slider-label selected" id="med">MEDIUM</span>
+                <span class="slider-label" id="high">HIGH</span>
+              </div>
+            </div>
+        </div>
+
+        <div class="app-block">
+          <input class="button" type="button" id="" value="END SESSION" onClick="goMute()">
+        </div>
+      </div>
+    </div>
+    <!-- END STUDENT DASHBOARD -->
+
+
+  </div>
+  <!-- END STUDENT PORTAL -->
+
+
+<!--  END OF APP container -->
+</div>
+
+<script src="./index.js"></script>
+
+</body>
+</html>

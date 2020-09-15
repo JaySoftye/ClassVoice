@@ -213,46 +213,186 @@ function goPinEnter() {
   }
 }
 
-// BOOM Session lit af
-// MATCH user initials and set variable for later use in user profile icon
-// Validation of PIN field
-// ENTER PIN 1234 FOR TEST
-// Valid PIN, EMPTY PIN check and display error if FAILS if passed goto Student Dashboard
-function goStudentSession() {
-  var userName = document.getElementById("student_name_confirmed").innerHTML;
-  var userInitials = userName.match(/\b(\w)/g);
-  var userProfileIntials = userInitials.join('');
-  var sessionPin = document.getElementById("session_pin").value;
 
-  var studentAuthContainer = document.getElementById("studentPortalLogin");
+// LOOP A DOOP FOR RADIO BUTTONS
+// CREATE an array of animals avatars
+// illterate over radio buttons
+// CLICK FUNCTION for Menu Open
+// CLICK FUNCTION for Menu CLOSE ON SELECT
+var avatars = ['bear-avatar', 'boar-avatar', 'cat-avatar', 'cow-avatar', 'dog-avatar', 'elephant-avatar', 'fox-avatar', 'hippo-avatar', 'koala-avatar', 'monkey-avatar', 'panda-avatar', 'penguin-avatar', 'pig-avatar', 'tiger-avatar', 'wolf-avatar']
+var radioButtons = '<div>';
+var menuCover = document.createElement('div');
+  menuCover.classList.add('select_menu_cover', 'inactive');
+
+  avatars.forEach(function(avatar) {
+    radioButtons += '<label class="avatar-menu-item" for="'+ avatar +'"><input type="radio" name="avatar" id="'+ avatar +'" value="'+ avatar +'" /><img src="_assets/avatars/'+ avatar +'.svg" /></label>';
+  });
+  radioButtons += '</div>';
+
+  var avatarSelectMenu =  document.getElementById("avatar_select_menu");
+    if (typeof(avatarSelectMenu) != 'undefined' && avatarSelectMenu != null) {
+      avatarSelectMenu.innerHTML = radioButtons;
+        document.getElementById("studentPortalContainer").appendChild(menuCover);
+    }
+
+
+
+function openAvatarMenu() {
+  var menu = document.getElementById("avatar_select_menu");
+  var cover = document.querySelector(".select_menu_cover");
+    menu.classList.remove("inactive");
+    menu.classList.add("active");
+    cover.classList.remove("inactive")
+    cover.classList.add("active");
+}
+
+var avatarMenuItem = document.getElementsByName("avatar");
+
+for(var i = 0; i < avatarMenuItem.length; i++) {
+  avatarMenuItem[i].addEventListener("click", function() {
+    var menu = document.getElementById("avatar_select_menu");
+    var cover = document.querySelector(".select_menu_cover");
+
+      menu.classList.add("inactive");
+      menu.classList.remove("active");
+      cover.classList.add("inactive");
+      cover.classList.remove("active")
+
+    var item = document.querySelector('input[name = "avatar"]:checked').value;
+    var imgIconPath = '_assets/avatars/' + item + '.svg';
+    var imgIcon = document.createElement('img');
+      imgIcon.src = imgIconPath;
+        document.getElementById("open_avatar_menu_button").innerHTML = "";
+          document.getElementById("open_avatar_menu_button").appendChild(imgIcon);
+  });
+}
+
+
+// JIBITY BIBITY JOIN A SESSION ALREADY IN PROGRESS
+// ENTERED PIN 5678 INITIALLY FOR TEST
+// ENTER PIN 1234 TO PROCEED
+function goStudentSessionInProgress() {
+  var sessionInProgressPin = document.getElementById("session_pin_in_progress").value;
+
   var authenticationContainer = document.getElementById("studentAuthentication");
+  var authenticationInProgressContainer = document.getElementById("studentPinLoginInProgress");
   var userDashboard = document.getElementById("studentDashboard");
 
-  if (sessionPin == 0) {
-    document.getElementById("pinErrorMessage").innerHTML = "Please enter a PIN number to continue";
+  if (sessionInProgressPin == 0) {
+    document.getElementById("pinInProgressErrorMessage").innerHTML = "Please enter a PIN number to continue";
       return false;
 
-  } else if (sessionPin != "1234") {
-    document.getElementById("pinErrorMessage").innerHTML = "The PIN number you entered is not valid<br />Please try again";
+  } else if (sessionInProgressPin != "1234") {
+    document.getElementById("pinInProgressErrorMessage").innerHTML = "The PIN number you entered is not valid<br />Please try again";
       return false;
 
-  } else if (sessionPin == "1234") {
+  } else if (sessionInProgressPin == "1234") {
+    var userName = document.getElementById("userGreeting").innerHTML;
+      document.getElementById("userName").innerHTML = userName;
+      
     authenticationContainer.classList.remove("active");
     authenticationContainer.classList.add("inactive");
+    authenticationInProgressContainer.classList.remove("active");
+    authenticationInProgressContainer.classList.add("inactive");
     userDashboard.classList.remove("inactive");
     userDashboard.classList.add("sessionStarted", "active");
-      document.getElementById("userName").innerHTML = userName;
-      document.getElementById("userInitials").innerHTML = userProfileIntials;
 
       return true;
 
   } else {
     alert('I do not know what happenned.');
       return false
-
   }
-
 }
+
+
+// BOOM Session lit af
+// MATCH user initials and set variable for later use in user profile icon
+// Validation of PIN field
+// ENTER PIN 1234 FOR TEST
+// Validate if Radio Button Name Group 'Avatar' is selected
+// SELECT CAT AVATAR FOR TEST
+// Valid PIN, EMPTY PIN, Avatar, EMPTY Select Radio Button Avatar Select - check and display error if FAILS if passed goto Student Dashboard
+function goStudentSession() {
+  var userName = document.getElementById("student_name_confirmed").innerHTML;
+  var userInitials = userName.match(/\b(\w)/g);
+  var userProfileIntials = userInitials.join('');
+  var sessionPin = document.getElementById("session_pin").value;
+
+  var sessionAvatar = document.querySelector("input[name='avatar']:checked").value;
+
+  var studentAuthContainer = document.getElementById("studentPortalLogin");
+  var authenticationContainer = document.getElementById("studentAuthentication");
+  var studentPinLogin = document.getElementById("studentPinLogin");
+  var authenticationInProgressContainer = document.getElementById("studentPinLoginInProgress");
+  var userDashboard = document.getElementById("studentDashboard");
+
+  if (sessionPin == "5678" && sessionAvatar == "cat-avatar") {
+    var userName = document.getElementById("student_name_confirmed").innerHTML;
+      document.getElementById("userGreeting").innerHTML = userName;
+
+    studentPinLogin.classList.remove("active");
+    studentPinLogin.classList.add("inactive");
+    authenticationInProgressContainer.classList.remove("inactive");
+    authenticationInProgressContainer.classList.add("active");
+
+      return true;
+
+  } else if (sessionPin == 0 && sessionAvatar == "default") {
+    document.getElementById("pinErrorMessage").innerHTML = "Please enter a PIN number to continue";
+    document.getElementById("avatarErrorMessage").innerHTML = "Please select an Avatar to continue";
+      return false;
+
+  } else if (sessionPin == 0 && sessionAvatar == "cat-avatar") {
+    document.getElementById("pinErrorMessage").innerHTML = "Please enter a PIN number to continue";
+    document.getElementById("avatarErrorMessage").innerHTML = "";
+      return false;
+
+  } else if (sessionPin == 0 && sessionAvatar != "cat-avatar") {
+    document.getElementById("pinErrorMessage").innerHTML = "Please enter a PIN number to continue";
+    document.getElementById("avatarErrorMessage").innerHTML = "This AVATAR doesn't seem to match the one for this session. Please try again.";
+      return false;
+
+  } else if (sessionPin != "1234" && sessionAvatar == "default") {
+    document.getElementById("pinErrorMessage").innerHTML = "The PIN number you entered is not valid<br />Please try again";
+    document.getElementById("avatarErrorMessage").innerHTML = "Please select an Avatar to continue";
+      return false;
+
+  } else if (sessionPin != "1234" && sessionAvatar != "cat-avatar") {
+    document.getElementById("pinErrorMessage").innerHTML = "The PIN number you entered is not valid<br />Please try again";
+    document.getElementById("avatarErrorMessage").innerHTML = "This AVATAR doesn't seem to match the one for this session. Please try again.";
+      return false;
+
+  } else if (sessionPin != "1234" && sessionAvatar == "cat-avatar") {
+    document.getElementById("pinErrorMessage").innerHTML = "The PIN number you entered is not valid<br />Please try again";
+    document.getElementById("avatarErrorMessage").innerHTML = "";
+      return false;
+
+  } else if (sessionPin == "1234" && sessionAvatar == "default") {
+    document.getElementById("pinErrorMessage").innerHTML = "";
+    document.getElementById("avatarErrorMessage").innerHTML = "Please select an Avatar to continue";
+      return false;
+
+  } else if (sessionPin == "1234" && sessionAvatar != "cat-avatar") {
+    document.getElementById("pinErrorMessage").innerHTML = "";
+    document.getElementById("avatarErrorMessage").innerHTML = "This AVATAR doesn't seem to match the one for this session. Please try again.";
+      return false;
+
+  } else if (sessionPin == "1234" && sessionAvatar == "cat-avatar") {
+    authenticationContainer.classList.remove("active");
+    authenticationContainer.classList.add("inactive");
+    userDashboard.classList.remove("inactive");
+    userDashboard.classList.add("sessionStarted", "active");
+      document.getElementById("userName").innerHTML = userName;
+
+      return true;
+
+  } else {
+    alert('I do not know what happenned.');
+      return false
+  }
+}
+
 
 // Greetings True Believers!
 // Show Audio Dashboard Controls on after records
