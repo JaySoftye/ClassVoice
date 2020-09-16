@@ -584,13 +584,16 @@ body.aside-active .aside-container > .aside-content {
   position: relative;
   margin-right: 25px;
   margin-top: 25px;
-  background-size: contain;
-  background-position: center 0;
+  background-size: 105px 105px;
+  background-position: center -7px;
   background-repeat: no-repeat;
 }
 .teacherAuthentication.sessionStarted ul.student-roster li.student button {
   height: 90px;
   width: 90px;
+  position: relative;
+  z-index: 10;
+  background: transparent;
   border-radius: 100%;
   border: none;
   outline: none;
@@ -605,14 +608,24 @@ body.aside-active .aside-container > .aside-content {
   text-align: center;
   font-size: .75rem;
 }
-ul.student-roster li.student.status-waiting button {
-  position: relative;
+ul.student-roster li.student.status-waiting::before {
+  content: '';
+  height: 90px;
+  width: 90px;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
   background: rgba(183,183,183,.75);
-  background: linear-gradient(180deg, rgba(183,183,183,.75) 0%, rgba(100,100,100,.75) 100%);
-  box-shadow: inset 0px 0px 15px 0px rgba(0,0,0,0.5);
+  background: linear-gradient(180deg, rgba(183,183,183,1) 0%, rgba(100,100,100,1) 100%);
+  border-radius: 100%;
+  opacity: .879;
+}
+ul.student-roster li.student button {
   color: #ECEEEF;
 }
-ul.student-roster li.student.status-waiting button::before {
+ul.student-roster li.student.status-accepted::before {
   content: '';
   height: 90px;
   width: 90px;
@@ -620,50 +633,16 @@ ul.student-roster li.student.status-waiting button::before {
   position: absolute;
   top: 0;
   left: 0;
-  background: rgba(183,183,183,.75);
-  background: linear-gradient(180deg, rgba(183,183,183,.75) 0%, rgba(100,100,100,.75) 100%);
+  z-index: 1;
+  background: rgba(221,251,15,.75);
+  background: linear-gradient(180deg, rgba(247,112,98,1) 0%, rgba(254,81,150,1) 50%);
   border-radius: 100%;
-}
-ul.student-roster li.student.status-waiting button::after {
-  content: '';
-  height: 90px;
-  width: 90px;
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-repeat: no-repeat;
-  background-size: 70%;
-  background-position: center center;
-  opacity: .75;
+  opacity: .879;
 }
 ul.student-roster li.student.status-accepted button {
-  position: relative;
-  background: rgba(221,251,15,.75);
-  background: linear-gradient(180deg, rgba(247,112,98,.75) 0%, rgba(254,81,150,.75) 50%);
-  box-shadow: inset 0px 5px 5px 0px rgba(0,0,0,0.5);
-  color: #ede491;
-}
-ul.student-roster li.student.status-accepted button::before {
-  content: '';
-  height: 90px;
-  width: 90px;
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background: rgba(221,251,15,.75);
-  background: linear-gradient(180deg, rgba(246,59,40,.75) 0%, rgba(254,62,97,.75) 50%);
-  border-radius: 100%;
-}
-ul.student-roster li.student.status-unmuted button {
-  position: relative;
-  background: rgba(221,251,15,.75);
-  background: linear-gradient(180deg, rgba(98,247,189,.75) 0%, rgba(81,162,254,.75) 100%);
-  box-shadow: 0px 15px 15px 0px rgba(0, 0, 0, 0.25);
   color: #000000;
 }
-ul.student-roster li.student.status-unmuted button::before {
+ul.student-roster li.student.status-unmuted::before {
   content: '';
   height: 90px;
   width: 90px;
@@ -671,12 +650,16 @@ ul.student-roster li.student.status-unmuted button::before {
   position: absolute;
   top: 0;
   left: 0;
+  z-index: 1;
   background: rgba(221,251,15,.75);
-  background: linear-gradient(180deg, rgba(98,247,189,.75) 0%, rgba(81,162,254,.75) 50%);
+  background: linear-gradient(180deg, rgba(98,247,189,1) 0%, rgba(81,162,254,1) 50%);
   border-radius: 100%;
+  opacity: .879;
 }
-ul.student-roster li.student.status-accepted button::after, ul.student-roster li.student.status-unmuted button::after {
-  display: none;
+ul.student-roster li.student.status-waiting button {
+  background: transparent;
+  box-shadow: inset 0px 0px 15px 0px rgba(0,0,0,0.5);
+  color: #ffffff;
 }
 ul.student-roster li.student > .hand-raised {
   height: 30px;
