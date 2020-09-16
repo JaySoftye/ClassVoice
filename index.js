@@ -560,7 +560,7 @@ function goTalk() {
     talkButton.classList.toggle("talking");
 
     if (talkButton.innerHTML === "Push to talk") {
-      talkButton.innerHTML = "Click to top";
+      talkButton.innerHTML = "Click to stop";
     } else {
       talkButton.innerHTML = "Push to talk";
     }
