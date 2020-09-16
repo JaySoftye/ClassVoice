@@ -239,6 +239,21 @@ function goMuteAll() {
 
 }
 
+// Lock and Unlock ROOM
+function goLockUnlock() {
+  var selectElement = document.getElementById("roomLock");
+  var elementText = document.getElementById("roomLockText");
+
+    selectElement.classList.toggle("selected");
+
+    if (elementText.innerHTML == "UNLOCK ROOM ACCESS") {
+      elementText.innerHTML = "LOCK ROOM ACCESS";
+    } else {
+      elementText.innerHTML = "UNLOCK ROOM ACCESS";
+    }
+
+}
+
 // Drop it like its what
 // Prevent default drop action
 // Drop Zone icon animation initiated with 'deleting' class
