@@ -16,12 +16,85 @@ function goSessionDashboard() {
   document.getElementById("teacher_name_confirmed").innerHTML = name;
 }
 
-// Generate a PIN fo sho and ADD to input field
+// Generate a PIN and Avatar fo sho and ADD to input field
+var avatars = ['bear-avatar', 'boar-avatar', 'cat-avatar', 'cow-avatar', 'dog-avatar', 'elephant-avatar', 'fox-avatar', 'hippo-avatar', 'koala-avatar', 'monkey-avatar', 'panda-avatar', 'penguin-avatar', 'pig-avatar', 'tiger-avatar', 'wolf-avatar']
+
 function generatePin() {
   var pinNumber = Math.floor(1000 + Math.random() * 9000);
   var pinField = document.getElementById("session_pin");
+    pinField.value = pinNumber;
 
-  pinField.value = pinNumber;
+  var avatarButtonShare = document.getElementById("session_avatar");
+  var buttonAvatarImg = document.getElementById("session_avatar_icon");
+  var randomAvatar = avatars[Math.floor(Math.random() * avatars.length)];
+
+    avatarButtonShare.disabled = false;
+    avatarButtonShare.classList.add("avatar-share");
+    buttonAvatarImg.src = "_assets/avatars/" + randomAvatar + ".svg";
+}
+
+// ENGLARGE THAT ICON
+function enlargeAvataricon() {
+  var body = document.body;
+    var sessionAvatar = document.getElementById("session_avatar_icon");
+    var sessionAvatarSrc = sessionAvatar.src;
+    var sessionAvatarImg = document.createElement("img");
+      sessionAvatarImg.src = sessionAvatarSrc;
+      sessionAvatarImg.classList.add("enlarged");
+        document.getElementById("aside_content").appendChild(sessionAvatarImg);
+    body.classList.add("aside-active");
+}
+
+// ADD ANOTHER STUDENT AFTER SESSION TIME STAMP ENDS
+// CLICK Button TO GENERATE PIN
+// CLOSE POP IN MENU AND CLEAR CONTENT
+function addStudentPinGenerate() {
+  var body = document.body;
+    body.classList.add("aside-active");
+
+  var inputFieldControl = document.createElement("div");
+  var inputFieldLabel = document.createElement("label");
+  var inputField = document.createElement("input");
+    inputFieldControl.classList.add("input-field-control");
+    inputField.setAttribute("id", "session_pin");
+    inputField.setAttribute("name", "session_pin");
+    inputField.setAttribute("disabled", true);
+    inputFieldLabel.innerHTML = "Share this session PIN"
+
+      document.getElementById("aside_content").appendChild(inputFieldControl);
+        inputFieldControl.appendChild(inputFieldLabel);
+          inputFieldControl.appendChild(inputField);
+
+  var pinNumber = Math.floor(1000 + Math.random() * 9000);
+    var pinField = document.getElementById("session_pin");
+      pinField.value = pinNumber;
+}
+
+// OPEN ADMIN CONTROL PANEL
+// OPEN AND GENERATE HTML ELEMENTS
+// CLOSE POP IN MENU AND CLEAR CONTENT
+function openAdminControlPanel() {
+  var body = document.body;
+    body.classList.add("aside-active");
+
+  var inputFieldControl = document.createElement("div");
+  var inputFieldLabel = document.createElement("label");
+  var inputField = document.createElement("input");
+    inputFieldControl.classList.add("input-field-control");
+    inputField.setAttribute("type", "submit");
+    inputFieldLabel.innerHTML = "Device Management"
+
+      document.getElementById("aside_content").appendChild(inputFieldControl);
+        inputFieldControl.appendChild(inputFieldLabel);
+          inputFieldControl.appendChild(inputField);
+}
+
+// CLOSE ASIDE MENU
+// and DELETE ALL CONTENT
+function asideClose() {
+  var body = document.body;
+    body.classList.remove("aside-active");
+      document.getElementById("aside_content").innerHTML = "";
 }
 
 // Dolla Dolla bills
@@ -35,6 +108,16 @@ function goStudentAttendance() {
   var showElement = document.getElementById("studentAttendance");
   var showDash = document.getElementById("teacherDash");
   var showStudents = document.getElementById("authenticationContainer");
+
+    var sessionAvatarIcon = document.getElementById("session_avatar_icon");
+    var sessionAvatarIconPath = sessionAvatarIcon.src;
+      var sessionIdAvatarImg = document.getElementById("sessionIdAvatar");
+        sessionIdAvatarImg.src = sessionAvatarIconPath;
+
+      var studentRoster = document.querySelectorAll("li.student");
+        for (i = 0; i < studentRoster.length; i++) {
+          studentRoster[i].style.backgroundImage = "url('" + sessionAvatarIconPath + "')";
+        }
 
     if (pinField.value == null || pinField.value == "") {
       pinFieldError.classList.remove("inactive");
@@ -235,8 +318,6 @@ var menuCover = document.createElement('div');
         document.getElementById("studentPortalContainer").appendChild(menuCover);
     }
 
-
-
 function openAvatarMenu() {
   var menu = document.getElementById("avatar_select_menu");
   var cover = document.querySelector(".select_menu_cover");
@@ -289,7 +370,7 @@ function goStudentSessionInProgress() {
   } else if (sessionInProgressPin == "1234") {
     var userName = document.getElementById("userGreeting").innerHTML;
       document.getElementById("userName").innerHTML = userName;
-      
+
     authenticationContainer.classList.remove("active");
     authenticationContainer.classList.add("inactive");
     authenticationInProgressContainer.classList.remove("active");
@@ -525,28 +606,31 @@ function goMute() {
 // Label class change for mouse event
 // TEST IF INPUT UI IS WORKING
   var echoSlider = document.getElementById("echoReduction");
-  var echoSliderLabels= document.getElementById("low");
-  var echoSliderLabelLow = document.getElementById("low");
-  var echoSliderLabelMed = document.getElementById("med");
-  var echoSliderLabelHigh = document.getElementById("high");
+    if (typeof(echoSlider) != 'undefined' && echoSlider != null) {
 
-    console.info(echoSlider.defaultValue);
+      var echoSliderLabels= document.getElementById("low");
+      var echoSliderLabelLow = document.getElementById("low");
+      var echoSliderLabelMed = document.getElementById("med");
+      var echoSliderLabelHigh = document.getElementById("high");
 
-  echoSlider.onchange = function () {
-    console.info(echoSlider.value);
+        console.info(echoSlider.defaultValue);
 
-    if (echoSlider.value > 0 && echoSlider.value < 33) {
-      echoSliderLabelLow.classList.add("selected");
-      echoSliderLabelMed.classList.remove("selected");
-      echoSliderLabelHigh.classList.remove("selected");
-    } else if (echoSlider.value > 33 && echoSlider.value < 66) {
-      echoSliderLabelLow.classList.remove("selected");
-      echoSliderLabelMed.classList.add("selected");
-      echoSliderLabelHigh.classList.remove("selected");
-    } else if (echoSlider.value > 66 && echoSlider.value < 101) {
-      echoSliderLabelLow.classList.remove("selected");
-      echoSliderLabelMed.classList.remove("selected");
-      echoSliderLabelHigh.classList.add("selected");
+      echoSlider.onchange = function () {
+        console.info(echoSlider.value);
+
+        if (echoSlider.value > 0 && echoSlider.value < 33) {
+          echoSliderLabelLow.classList.add("selected");
+          echoSliderLabelMed.classList.remove("selected");
+          echoSliderLabelHigh.classList.remove("selected");
+        } else if (echoSlider.value > 33 && echoSlider.value < 66) {
+          echoSliderLabelLow.classList.remove("selected");
+          echoSliderLabelMed.classList.add("selected");
+          echoSliderLabelHigh.classList.remove("selected");
+        } else if (echoSlider.value > 66 && echoSlider.value < 101) {
+          echoSliderLabelLow.classList.remove("selected");
+          echoSliderLabelMed.classList.remove("selected");
+          echoSliderLabelHigh.classList.add("selected");
+        }
+
+      };
     }
-
-  };
