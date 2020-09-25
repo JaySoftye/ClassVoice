@@ -111,6 +111,10 @@
     <div class="column padding-sm">
       <h1 class="content-header serif is-blue-text">Are you ready to download the ClassVoice student app? </h1>
       <h2 class="is-white-text">(Your school needs to have purchased a license in order for you to use the app!)</h2>
+        <br />
+        <br />
+      <h3 class="content-header serif is-blue-text"><b>Be sure to have your session PIN and Avatar ready.</b></h3>
+      <a class="button" href="https://classvoice.teq.com/student">Download the app!</a>
     </div>
   </div>
 </aside>
@@ -156,7 +160,7 @@
         <div class="columns is-centered">
           <div class="column is-5 is-offset-7">
             <h1 class="header less-line-height is-pink-text">Ensure that every voice is heard in the classroom.</h1>
-            <h2 class="content-header is-white-text">With just a few simple clicks, you’ll connect to your class, take attendance, and then let the learning begin!  </h2>
+            <h2 class="content-header is-white-text">With just a few simple clicks, you’ll connect to your class and let the learning begin!  </h2>
             <div class="flex start">
               <button type="button" class="button howToBuy">Buy License</button>
             </div>
@@ -205,7 +209,6 @@
             <div class="padding content">
               <h4 class="strong padding-top">For Teachers:</h4>
               <p>Ensure that <b>students can hear each other</b></p>
-              <p>Ability to take <b>no-contact, virtual attendance</b></p>
               <p>Monitor class questions and <b>open the microphone as needed</b> to the class or to an individual student </p>
               <div class="flex start">
                 <button class="button download-icon" onclick="openTeacherApp()"><span>TEACHER APP</span></button>
